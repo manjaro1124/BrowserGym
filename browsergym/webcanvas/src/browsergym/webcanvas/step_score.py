@@ -2,8 +2,8 @@ import re
 from urllib.parse import parse_qs, urlparse, unquote
 from lxml import html
 
-from .sematic_match.prompt_constructor import SemanticMatchPromptConstructor
-from .sematic_match.openai import GPTGenerator35
+from .semantic_match.prompt_constructor import SemanticMatchPromptConstructor
+from .semantic_match.openai import GPTGenerator35
 
 
 MapTagNameList = [
@@ -171,10 +171,10 @@ class ElementEvaluator(StepEvaluator):
 
     @ staticmethod
     def element_value_exact_match(input_answer, reference_answer, input_netloc, reference_netloc):
-        if reference_netloc != input_netloc:
-            # print("reference_netloc:", reference_netloc,
-            #       "input_netloc:", input_netloc)
-            return 0
+        # if reference_netloc != input_netloc:
+        #     # print("reference_netloc:", reference_netloc,
+        #     #       "input_netloc:", input_netloc)
+        #     return 0
         result_score = MatchFunction.exact_match(
             input_answer, reference_answer)
         return result_score
